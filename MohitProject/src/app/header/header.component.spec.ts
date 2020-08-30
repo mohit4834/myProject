@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ChartModule } from 'primeng/chart';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
@@ -12,7 +13,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MatIconModule, MatMenuModule, MatToolbarModule, ChartModule],
+      imports: [MatIconModule, MatMenuModule, MatToolbarModule, ChartModule, HttpClientTestingModule],
       declarations: [ HeaderComponent ]
     })
     .compileComponents();

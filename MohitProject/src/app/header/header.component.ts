@@ -1,3 +1,4 @@
+import { LoginService } from './../core/login.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,26 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  public visitorNumber: number;
 
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
+    const obj = this.loginService.getCounter();
+    if (obj && obj.count) {
+      this.visitorNumber = this.loginService.getCounter().count;
+    }
   }
 
   toggleSideNav() {
     // this.event.emit('toggleSideNav');
-  }
-
-  openUserProfileDialog(): void {
-    // const dialogRef = this.dialog.open(AdminUserProfileDialogComponent, {
-    //   width: '450px',
-    //   height: '620px',
-    //   data: { name: this.name, animal: this.animal }
-    // });
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    // });
   }
 
 }

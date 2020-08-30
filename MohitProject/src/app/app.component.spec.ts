@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
@@ -18,7 +19,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [
       MatFormFieldModule, MatIconModule, FormsModule, MatSidenavModule, MatListModule, MatMenuModule, MatToolbarModule,
-      RouterTestingModule, BrowserAnimationsModule
+      RouterTestingModule, BrowserAnimationsModule, HttpClientTestingModule
       ],
       declarations: [
         AppComponent, HeaderComponent, SideNavComponent

@@ -1,0 +1,46 @@
+<div>
+    <mat-card class="margin-left-right">
+        <mat-form-field appearance="fill" class="width-min">
+            <mat-label>Select Status to Filter</mat-label>
+            <mat-select [(value)]="selected">
+              <mat-option value="None">None</mat-option>
+              <mat-option value="Running">Running</mat-option>
+              <mat-option value="Canceled">Canceled</mat-option>
+              <mat-option value="Completed">Completed</mat-option>
+            </mat-select>
+          </mat-form-field>
+    </mat-card>
+    <div class="list">
+
+      <mat-action-list class="content-list">
+        <div *ngFor="let item of items |  statusFilter : 'status' : selected" class="padding-botto-5">
+          <a>
+            <mat-list-item [class.active]="selectedItem && item.id===selectedItem.id"
+              (click)="setSelectedItem(item)" class="list-group-item margin-top-bottom">
+              {{item.name}}
+            </mat-list-item>
+          </a>
+        </div>
+      </mat-action-list>
+    </div>
+  </div>
+
+  <div>
+    <mat-card class="margin-left-right">
+          <button mat-raised-button class="margin-left-right" (click)="inStocks = true" [disabled]="inStocks" color="primary">In Stock</button>
+          <button mat-raised-button class="margin-left-right" (click)="inStocks = false" [disabled]="!inStocks" color="accent">Out Of Stock</button>
+    </mat-card>
+    <div class="list">
+
+      <mat-action-list class="content-list">
+        <div *ngFor="let stockItem of stockItems |  statusFilter : 'inStock': inStocks" class="padding-botto-5">
+          <a>
+            <mat-list-item [class.active]="selectedStockItem && stockItem.id===selectedStockItem.id"
+              (click)="setSelectedStockItem(stockItem)" class="list-group-item margin-top-bottom">
+              {{stockItem.name}}
+            </mat-list-item>
+          </a>
+        </div>
+      </mat-action-list>
+    </div>
+  </div>

@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+    <mat-icon (click)="toggleSideNav()" class="padding-rl-10 clickable-pointer top-padding-10">menu</mat-icon>
+    &nbsp;&nbsp;&nbsp;
+    <mat-icon class="padding-rl-10 clickable-pointer top-padding-10">laptop</mat-icon>
+    
+    <span class="header-spacer"></span>
+    <!-- <mat-icon [matMenuTriggerFor]="menu" svgIcon="user" class="header-icon" aria-hidden="false" aria-label="user"></mat-icon> -->
+  <mat-menu>
+      <button mat-menu-item (click)="openUserProfileDialog()" >User Profile</button>
+      <button mat-menu-item routerLink="/logout" >LogOut</button>
+    </mat-menu>
+  </mat-toolbar>
+  
+  

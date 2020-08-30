@@ -1,0 +1,16 @@
+<ng-container>
+  <h4 class="root">MohitProject app is running!</h4>
+  <app-header></app-header>
+  <mat-sidenav-container class="example-container">
+      <mat-sidenav opened mode="side">
+          <app-side-nav></app-side-nav>
+      </mat-sidenav>
+
+      <mat-sidenav-content
+          fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="flex-start">
+          <div class="full-width">
+              <router-outlet></router-outlet>
+          </div>
+      </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>
